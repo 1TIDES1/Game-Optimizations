@@ -26,3 +26,15 @@ $newContent | Set-Content -Path 'videoconfig.txt'
 $content = Get-Content -path 'videoconfig.txt'
 $newContent = $content -replace '0000000', $arg5
 $newContent | Set-Content -Path 'videoconfig.txt'
+
+set-location $env:USERPROFILE
+cd 'Documents'
+$fps_line = Get-Content 'Benchmark.txt' | Select -Index 4
+$fps_count = $fps_line -replace "[^0-9]" , ''
+$fps_accurate = $fps_count / 10
+
+set-location $env:TEMP
+cd 'Apex_Configs'
+$content = Get-Content -path 'autoexec.cfg'
+$newContent = $content -replace 'fps_cap', $fps_accurate
+$newContent | Set-Content -Path 'autoexec.cfg'
