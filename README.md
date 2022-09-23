@@ -1,5 +1,5 @@
 # Game Optimizations
-## Table of contents
+## Games
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
