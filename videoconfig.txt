@@ -29,7 +29,7 @@
 	"setting.volumetric_lighting"		"0"                                //
 	"setting.mat_vsync_mode"		"0"                                // Vsync
 	"setting.mat_backbuffer_count"		"1"                                //
-	"setting.mat_antialias_mode"		"0"                                //
+	"setting.mat_antialias_mode"		"12"                                //
 	"setting.csm_enabled"		"0"                                        // Shadows from the sun, 0 is OFF (CPU)
 	"setting.csm_coverage"		"0"                                        // Some other quality setting for the shadows from the sun (CPU)
 	"setting.csm_cascade_res"		"0"                                // Details of the shadows, Minimum value is 0 (CPU)
