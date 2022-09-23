@@ -43,4 +43,4 @@ $newContent | Set-Content -Path 'autoexec.cfg'
 
 $content = Get-Content -path 'superglide3.cfg'
 $newContent = $content -replace 'fps_cap', $fps_accurate
-$newContent | Set-Content -Path 'autoexec.cfg'
+$newContent | Set-Content -Path 'superglide3.cfg'
