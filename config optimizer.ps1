@@ -3,6 +3,7 @@ $arg2=$args[1]
 $arg3=$args[2]
 $arg4=$args[3]
 $arg5=$args[4]
+$arg6=$args[5]
 
 set-location $env:TEMP
 cd 'Apex_Configs'
