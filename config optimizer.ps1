@@ -32,7 +32,8 @@ cd 'Documents'
 $fps_line = Get-Content 'Benchmark.txt' | Select -Index 4
 $fps_count = $fps_line -replace "[^0-9]" , ''
 $fps_total = $fps_count / 10
-$fps_accurate = $fps_total - 1000
+$fps_round = [math]::Round($fps_total)
+$fps_accurate = $fps_round - 1000
 
 set-location $env:TEMP
 cd 'Apex_Configs'
