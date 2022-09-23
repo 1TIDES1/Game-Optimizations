@@ -31,9 +31,11 @@ set-location $env:USERPROFILE
 cd 'Documents'
 $fps_line = Get-Content 'Benchmark.txt' | Select -Index 4
 $fps_count = $fps_line -replace "[^0-9]" , ''
+$fps_total = $fps_count / 10
+$fps_accurate = $fps_total - 1000
 
 set-location $env:TEMP
 cd 'Apex_Configs'
 $content = Get-Content -path 'autoexec.cfg'
-$newContent = $content -replace 'fps_cap', $fps_count
+$newContent = $content -replace 'fps_cap', $fps_accurate
 $newContent | Set-Content -Path 'autoexec.cfg'
