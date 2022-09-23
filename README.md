@@ -1,5 +1,5 @@
 # Game Optimizations
 ## Games
-* [General info](#general-info)
+* [Apex Legends](#apex-legends)
 * [Technologies](#technologies)
 * [Setup](#setup)
