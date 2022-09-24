@@ -29,7 +29,9 @@ function Config_Edit
  $content = Get-Content -path 'videoconfig.txt'
  $newContent = $content -replace '0000000', $arg5
  $newContent | Set-Content -Path 'videoconfig.txt'
-
+ 
+ Accurate_Frame_Cap
+ 
  set-location $env:TEMP
  cd 'Apex_Configs'
  $content = Get-Content -path 'autoexec.cfg'
@@ -57,6 +59,5 @@ Function Accurate_Frame_Cap
    $fps_accurate=0
  }
 }
-
 
 Config_Edit
