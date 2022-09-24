@@ -39,7 +39,7 @@ Function Accurate_Frame_Cap
  Set-Variable -scope 1 -Name "fps_accurate" -Value '$fps_round - 1000'
 }
 
-if ($arg6=yes)
+if ($arg6 -eq 'yes')
 {
   Accurate_Frame_Cap
 }
