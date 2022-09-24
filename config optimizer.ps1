@@ -6,6 +6,7 @@ $arg5=$args[4]
 $arg6=$args[5]
 $arg6=$args[6]
 
+#---------[FRAME CAP FUNCTION]---------#
 
 Function Accurate_Frame_Cap
 {
@@ -23,6 +24,8 @@ Function Accurate_Frame_Cap
    Set-Variable -scope 1 -Name "fps_accurate" -Value '0'
  }
 }
+
+#---------[CONFIG EDITOR FUNCTION]---------#
 
 function Config_Edit
 {
@@ -60,5 +63,7 @@ function Config_Edit
  $newContent = $content -replace 'fps_cap', $fps_accurate
  $newContent | Set-Content -Path 'superglide3.cfg'
 }
+
+#---------[CALL THE CONFIG EDITOR FUNCTION]---------#
 
 Config_Edit
