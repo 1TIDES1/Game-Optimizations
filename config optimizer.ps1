@@ -6,6 +6,24 @@ $arg5=$args[4]
 $arg6=$args[5]
 $arg6=$args[6]
 
+
+Function Accurate_Frame_Cap
+{
+ if ($arg6 -eq 'yes')
+ {
+  set-location $env:USERPROFILE
+  cd 'Documents'
+  $fps_line = Get-Content 'Benchmark.txt' | Select -Index 4
+  $fps_count = $fps_line -replace "[^0-9]" , ''
+  $fps_total = $fps_count / 10
+  $fps_round = [math]::Round($fps_total)
+  Set-Variable -scope 1 -Name "fps_accurate" -Value '$fps_round - 1000'
+ }
+ else {
+   Set-Variable -scope 1 -Name "fps_accurate" -Value '0'
+ }
+}
+
 function Config_Edit
 {
  set-location $env:TEMP
@@ -41,23 +59,6 @@ function Config_Edit
  $content = Get-Content -path 'superglide3.cfg'
  $newContent = $content -replace 'fps_cap', $fps_accurate
  $newContent | Set-Content -Path 'superglide3.cfg'
-}
-
-Function Accurate_Frame_Cap
-{
- if ($arg6 -eq 'yes')
- {
-  set-location $env:USERPROFILE
-  cd 'Documents'
-  $fps_line = Get-Content 'Benchmark.txt' | Select -Index 4
-  $fps_count = $fps_line -replace "[^0-9]" , ''
-  $fps_total = $fps_count / 10
-  $fps_round = [math]::Round($fps_total)
-  Set-Variable -scope 1 -Name "fps_accurate" -Value '$fps_round - 1000'
- }
- else {
-   Set-Variable -scope 1 -Name "fps_accurate" -Value '0'
- }
 }
 
 Config_Edit
