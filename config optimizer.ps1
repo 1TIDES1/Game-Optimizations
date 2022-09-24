@@ -56,7 +56,7 @@ Function Accurate_Frame_Cap
   Set-Variable -scope 1 -Name "fps_accurate" -Value '$fps_round - 1000'
  }
  else {
-   $fps_accurate=0
+   Set-Variable -scope 1 -Name "fps_accurate" -Value '0'
  }
 }
 
