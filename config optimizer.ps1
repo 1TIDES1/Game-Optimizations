@@ -18,7 +18,7 @@ Function Accurate_Frame_Cap
   $fps_count = $fps_line -replace "[^0-9]" , ''
   $fps_total = $fps_count / 10
   $fps_round = [math]::Round($fps_total)
-  Set-Variable -scope 1 -Name "fps_accurate" -Value '$fps_round - 1000'
+  Set-Variable -scope 1 -Name "fps_accurate" -Value $fps_round - 1000
  }
  else {
    Set-Variable -scope 1 -Name "fps_accurate" -Value '0'
