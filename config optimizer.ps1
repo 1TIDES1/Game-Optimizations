@@ -4,6 +4,7 @@ $arg3=$args[2]
 $arg4=$args[3]
 $arg5=$args[4]
 $arg6=$args[5]
+$arg7=$args[6]
 
 #---------[FRAME CAP FUNCTION]---------#
 
@@ -51,7 +52,7 @@ function Config_Edit
  $newContent | Set-Content -Path 'videoconfig.txt'
  
  $content = Get-Content -path 'videoconfig.txt'
- $newContent = $content -replace 'FS', $arg5
+ $newContent = $content -replace 'FS', $arg7
  $newContent | Set-Content -Path 'videoconfig.txt'
  
  Accurate_Frame_Cap
