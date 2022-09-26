@@ -36,6 +36,7 @@ Function Super_Glide
   Set-Variable -scope 1 -Name "SG_Choice" -Value ''
  else {
   $SG_Choice = 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)'
+  }
  }
 }
 
