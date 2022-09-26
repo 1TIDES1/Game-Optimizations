@@ -33,9 +33,9 @@ Function Super_Glide
 {
  if ($superglideChoice -eq 'no')
  {
-  Get-Content -path 'autoexec.cfg' |
-  Where-Object { -not $_.Contains('superglide1.cfg') } |
-  Set-Content -Path 'autoexec.cfg'
+  $content = Get-Content -path 'videoconfig.txt'
+  $newContent = $content -replace 'exec superglide1.cfg', "REMOVED"
+  $newContent | Set-Content -Path 'videoconfig.txt'
  }
 }
 
