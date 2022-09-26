@@ -55,11 +55,11 @@ function Config_Edit
  $newContent | Set-Content -Path 'videoconfig.txt'
 
  $content = Get-Content -path 'videoconfig.txt'
- $newContent = $content -replace 'csm', $shadows
- $newContent | Set-Content -Path 'videoconfig.txt'
- 
- $content = Get-Content -path 'videoconfig.txt'
  $newContent = $content -replace 'csm_res', $shadowRes
+ $newContent | Set-Content -Path 'videoconfig.txt'
+
+ $content = Get-Content -path 'videoconfig.txt'
+ $newContent = $content -replace 'csm', $shadows
  $newContent | Set-Content -Path 'videoconfig.txt'
 
  $content = Get-Content -path 'videoconfig.txt'
