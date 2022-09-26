@@ -50,6 +50,8 @@ function Config_Edit
  Super_Glide
  Accurate_Frame_Cap
  
+ # VIDEO CONFIG EDITS
+ 
  $content = Get-Content -path 'videoconfig.txt'
  $newContent = $content -replace '1920', $resolution
  $newContent | Set-Content -Path 'videoconfig.txt'
@@ -73,11 +75,13 @@ function Config_Edit
  $content = Get-Content -path 'videoconfig.txt'
  $newContent = $content -replace 'FS', $fullscreen
  $newContent | Set-Content -Path 'videoconfig.txt'
+
+ # AUTOEXEC EDITS
  
  $content = Get-Content -path 'autoexec.cfg'
  $newContent = $content -replace 'fps_cap', $fps_accurate
  $newContent | Set-Content -Path 'autoexec.cfg'
-
+ 
  $content = Get-Content -path 'superglide3.cfg'
  $newContent = $content -replace 'fps_cap', $fps_accurate
  $newContent | Set-Content -Path 'superglide3.cfg'
