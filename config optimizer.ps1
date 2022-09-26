@@ -1,16 +1,17 @@
-$arg1=$args[0]
-$arg2=$args[1]
-$arg3=$args[2]
-$arg4=$args[3]
-$arg5=$args[4]
-$arg6=$args[5]
-$arg7=$args[6]
+$resolution=$args[0]
+$antiAliasMode=$args[1]
+$shadows=$args[2]
+$shadowRes=$args[3]
+$streamBudget=$args[4]
+$fpsCapChoice=$args[5]
+$fullscreen=$args[6]
+$superglideChoice=$args[7]
 
 #---------[FRAME CAP FUNCTION]---------#
 
 Function Accurate_Frame_Cap
 {
- if ($arg6 -eq 'yes')
+ if ($fpsCapChoice -eq 'yes')
  {
   set-location $env:USERPROFILE
   cd 'Documents'
@@ -33,27 +34,27 @@ function Config_Edit
  set-location $env:TEMP
  cd 'Apex_Configs'
  $content = Get-Content -path 'videoconfig.txt'
- $newContent = $content -replace '1920', $arg1
+ $newContent = $content -replace '1920', $resolution
  $newContent | Set-Content -Path 'videoconfig.txt'
 
  $content = Get-Content -path 'videoconfig.txt'
- $newContent = $content -replace '12', $arg2
+ $newContent = $content -replace '12', $antiAliasMode
  $newContent | Set-Content -Path 'videoconfig.txt'
 
  $content = Get-Content -path 'videoconfig.txt'
- $newContent = $content -replace 'csm_res', $arg4
- $newContent | Set-Content -Path 'videoconfig.txt'
-
- $content = Get-Content -path 'videoconfig.txt'
- $newContent = $content -replace 'csm', $arg3
- $newContent | Set-Content -Path 'videoconfig.txt'
-
- $content = Get-Content -path 'videoconfig.txt'
- $newContent = $content -replace '0000000', $arg5
+ $newContent = $content -replace 'csm', $shadows
  $newContent | Set-Content -Path 'videoconfig.txt'
  
  $content = Get-Content -path 'videoconfig.txt'
- $newContent = $content -replace 'FS', $arg7
+ $newContent = $content -replace 'csm_res', $shadowRes
+ $newContent | Set-Content -Path 'videoconfig.txt'
+
+ $content = Get-Content -path 'videoconfig.txt'
+ $newContent = $content -replace '0000000', $streamBudget
+ $newContent | Set-Content -Path 'videoconfig.txt'
+ 
+ $content = Get-Content -path 'videoconfig.txt'
+ $newContent = $content -replace 'FS', $fullscreen
  $newContent | Set-Content -Path 'videoconfig.txt'
  
  Accurate_Frame_Cap
@@ -67,6 +68,12 @@ function Config_Edit
  $content = Get-Content -path 'superglide3.cfg'
  $newContent = $content -replace 'fps_cap', $fps_accurate
  $newContent | Set-Content -Path 'superglide3.cfg'
+ 
+ if ($superglideChoice -eq 'no')
+	$content = Get-Content -path 'autoexec.cfg'
+	$newContent = $content -replace 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)', ""
+	$newContent | Set-Content -Path 'autoexec.cfg'
+	
 }
 
 #---------[CALL THE CONFIG EDITOR FUNCTION]---------#
