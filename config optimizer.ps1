@@ -36,7 +36,7 @@ Function Super_Glide
  if ($superglideChoice -eq 'no')
  {
   $content = Get-Content -path 'autoexec.cfg'
-  $newContent = $content -replace 'exec superglide1.cfg', "REMOVED"
+  $newContent = $content -replace 'exec superglide1.cfg', "//REMOVED"
   $newContent | Set-Content -Path 'autoexec.cfg'
  }
 }
@@ -84,10 +84,12 @@ function Config_Edit
  $newContent = $content -replace 'fps_cap', $fps_accurate
  $newContent | Set-Content -Path 'autoexec.cfg'
  
- $content = Get-Content -path 'superglide3.cfg'
- $newContent = $content -replace 'fps_cap', $fps_accurate
- $newContent | Set-Content -Path 'superglide3.cfg'
- 
+ if Test-Path -Path superglide3.cfg -PathType Leaf
+ { 
+  $content = Get-Content -path 'superglide3.cfg'
+  $newContent = $content -replace 'fps_cap', $fps_accurate
+  $newContent | Set-Content -Path 'superglide3.cfg'
+ }
 }
 
 #---------[CALL THE CONFIG EDITOR FUNCTION]---------#
