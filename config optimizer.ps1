@@ -23,7 +23,7 @@ Function Accurate_Frame_Cap
   Set-Variable -scope 1 -Name "fps_accurate" -Value $fps_round
  }
  else {
-   Set-Variable -scope 1 -Name "fps_accurate" -Value '0'
+  Set-Variable -scope 1 -Name "fps_accurate" -Value '0'
  }
 }
 
@@ -33,9 +33,7 @@ Function Super_Glide
 {
  if ($superglideChoice -eq 'no')
  {
-  $content = Get-Content -path 'autoexec.cfg'
-  $newContent = $content -replace 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)', ""
-  $newContent | Set-Content -Path 'autoexec.cfg'
+  Set-Variable -scope 1 -Name "SG_Choice" -Value ''
  }
 }
 
@@ -82,6 +80,10 @@ function Config_Edit
  $newContent | Set-Content -Path 'superglide3.cfg'
  
  Super_Glide
+ 
+ $content = Get-Content -path 'autoexec.cfg'
+ $newContent = $content -replace 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)', %SG_Choice
+ $newContent | Set-Content -Path 'autoexec.cfg'
 }
 
 #---------[CALL THE CONFIG EDITOR FUNCTION]---------#
