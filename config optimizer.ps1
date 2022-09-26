@@ -25,6 +25,8 @@ Function Accurate_Frame_Cap
  else {
   Set-Variable -scope 1 -Name "fps_accurate" -Value '0'
  }
+ set-location $env:TEMP
+ cd 'Apex_Configs'
 }
 
 #---------[FRAME CAP FUNCTION]---------#
