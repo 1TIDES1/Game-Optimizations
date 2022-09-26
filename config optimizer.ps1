@@ -35,7 +35,7 @@ Function Super_Glide
  {
   Set-Variable -scope 1 -Name "SG_Choice" -Value ''
  else {
-  %SG_Choice = 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)'
+  $SG_Choice = 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)'
  }
 }
 
@@ -84,7 +84,7 @@ function Config_Edit
  Super_Glide
  
  $content = Get-Content -path 'autoexec.cfg'
- $newContent = $content -replace 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)', %SG_Choice
+ $newContent = $content -replace 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)', $SG_Choice
  $newContent | Set-Content -Path 'autoexec.cfg'
 }
 
