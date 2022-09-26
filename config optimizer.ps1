@@ -43,6 +43,9 @@ Function Super_Glide
 
 function Config_Edit
 {
+ 
+ Super_Glide
+ 
  set-location $env:TEMP
  cd 'Apex_Configs'
  $content = Get-Content -path 'videoconfig.txt'
@@ -80,8 +83,6 @@ function Config_Edit
  $content = Get-Content -path 'superglide3.cfg'
  $newContent = $content -replace 'fps_cap', $fps_accurate
  $newContent | Set-Content -Path 'superglide3.cfg'
- 
- Super_Glide
  
 }
 
