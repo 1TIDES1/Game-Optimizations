@@ -30,13 +30,14 @@ Function Accurate_Frame_Cap
 #---------[FRAME CAP FUNCTION]---------#
 
 Function Super_Glide
-
+{
  if ($superglideChoice -eq 'no')
  {
   $content = Get-Content -path 'autoexec.cfg'
   $newContent = $content -replace 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)', ""
   $newContent | Set-Content -Path 'autoexec.cfg'
  }
+}
 
 #---------[CONFIG EDITOR FUNCTION]---------#
 
