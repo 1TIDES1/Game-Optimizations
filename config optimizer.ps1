@@ -84,7 +84,9 @@ function Config_Edit
  $newContent = $content -replace 'fps_cap', $fps_accurate
  $newContent | Set-Content -Path 'autoexec.cfg'
  
- if (Test-Path -Path superglide3.cfg -PathType Leaf==True)
+ $superglide_exists = Test-Path -Path superglide3.cfg -PathType Leaf
+ 
+ if ($superglide_exists==True)
  { 
   $content = Get-Content -path 'superglide3.cfg'
   $newContent = $content -replace 'fps_cap', $fps_accurate
