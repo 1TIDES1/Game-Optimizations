@@ -33,12 +33,11 @@ Function Super_Glide
 {
  if ($superglideChoice -eq 'no')
  {
-  Set-Variable -scope 1 -Name "SG_Choice" -Value ''
+  Get-Content -path 'autoexec.cfg' |
+  Where-Object { -not $_.Contains('superglide1.cfg') } |
+  Set-Content -Path 'autoexec.cfg'
  }
- else {
-  $SG_Choice = 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)'
-  }
- }
+}
 
 #---------[CONFIG EDITOR FUNCTION]---------#
 
@@ -84,9 +83,6 @@ function Config_Edit
  
  Super_Glide
  
- $content = Get-Content -path 'autoexec.cfg'
- $newContent = $content -replace 'exec superglide1.cfg                                                    // Activate superglide script (Read more about it in superglide.cfg, superglide1.cfg and superglide2.cfg) (Works)', $SG_Choice
- $newContent | Set-Content -Path 'autoexec.cfg'
 }
 
 #---------[CALL THE CONFIG EDITOR FUNCTION]---------#
