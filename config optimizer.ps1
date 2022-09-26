@@ -33,9 +33,9 @@ Function Super_Glide
 {
  if ($superglideChoice -eq 'no')
  {
-  $content = Get-Content -path 'videoconfig.txt'
+  $content = Get-Content -path 'autoexec.cfg'
   $newContent = $content -replace 'exec superglide1.cfg', "REMOVED"
-  $newContent | Set-Content -Path 'videoconfig.txt'
+  $newContent | Set-Content -Path 'autoexec.cfg'
  }
 }
 
@@ -45,7 +45,8 @@ function Config_Edit
 {
  
  Super_Glide
- 
+ Accurate_Frame_Cap
+  
  set-location $env:TEMP
  cd 'Apex_Configs'
  $content = Get-Content -path 'videoconfig.txt'
@@ -71,8 +72,6 @@ function Config_Edit
  $content = Get-Content -path 'videoconfig.txt'
  $newContent = $content -replace 'FS', $fullscreen
  $newContent | Set-Content -Path 'videoconfig.txt'
- 
- Accurate_Frame_Cap
  
  set-location $env:TEMP
  cd 'Apex_Configs'
